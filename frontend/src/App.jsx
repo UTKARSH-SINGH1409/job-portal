@@ -19,6 +19,8 @@ import MyJobs from "./components/Job/MyJobs";
 
 const App = () => {
   const { isAuthorized, setIsAuthorized, setUser } = useContext(Context);
+  const [loading, setLoading] = React.useState(true);
+
   useEffect(() => {
     const fetchUser = async () => {
       try {
@@ -32,10 +34,16 @@ const App = () => {
         setIsAuthorized(true);
       } catch (error) {
         setIsAuthorized(false);
+      } finally {
+        setLoading(false);
       }
     };
     fetchUser();
-  }, [isAuthorized]);
+  }, []);
+
+  if (loading) {
+    return null;
+  }
 
   return (
     <>
