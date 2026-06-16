@@ -12,13 +12,17 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     try {
-      const response = await axios.get(
-        `${import.meta.env.VITE_API_URL}v1/user/logout`,
-        {
-          withCredentials: true,
-        }
-      );
-      toast.success(response.data.message);
+      try {
+          const response = await axios.get(
+          `${import.meta.env.VITE_API_URL}v1/user/logout`,
+          {
+            withCredentials: true,
+          }
+        );
+        toast.success(response.data.message);
+      } catch (error) {
+        console.error("Server failed to logout:", error);
+      }
       setIsAuthorized(false);
       setUser({});
       navigateTo("/login");
