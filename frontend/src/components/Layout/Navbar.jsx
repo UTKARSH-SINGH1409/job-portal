@@ -25,7 +25,7 @@ const Navbar = () => {
       }
       setIsAuthorized(false);
       setUser({});
-      navigateTo("/login");
+      window.location.reload();
     } catch (error) {
       toast.error(error.response?.data?.message || "Logout failed");
       setIsAuthorized(true);
