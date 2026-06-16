@@ -74,9 +74,7 @@ p {
 
 .authPage {
   display: flex;
-  min-width: 1500px;
-  max-width: 1500px;
-  margin: 0 auto;
+  width: 100%;
   min-height: 100vh;
 }
 .authPage .container {
@@ -162,16 +160,14 @@ p {
   border-radius: 7px;
 }
 .authPage .banner {
-  flex: 2;
+  flex: 1.2;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 .authPage .banner img {
   width: 100%;
-  width: 550px;
-  height: 550px;
+  height: 100%;
+  object-fit: cover;
 }
 @media (max-width: 1520px) {
   .authPage {

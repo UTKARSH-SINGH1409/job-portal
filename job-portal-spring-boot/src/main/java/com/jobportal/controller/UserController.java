@@ -103,7 +103,7 @@ public class UserController {
     public ResponseEntity<?> logout(HttpServletResponse response) {
         Cookie cookie = new Cookie("token", null);
         cookie.setHttpOnly(true);
-        cookie.setSecure(true);
+        cookie.setSecure(false);
         cookie.setPath("/");
         cookie.setMaxAge(0);
         response.addCookie(cookie);
@@ -114,7 +114,7 @@ public class UserController {
     private void setTokenCookie(HttpServletResponse response, String jwt) {
         Cookie cookie = new Cookie("token", jwt);
         cookie.setHttpOnly(true);
-        cookie.setSecure(true);
+        cookie.setSecure(false);
         cookie.setPath("/");
         cookie.setMaxAge(24 * 60 * 60); // 1 day
         response.addCookie(cookie);

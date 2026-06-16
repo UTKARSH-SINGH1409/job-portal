@@ -38,6 +38,7 @@ const Register = () => {
       setPhone("");
       setRole("");
       setIsAuthorized(true);
+      setUser(data.user);
     } catch (error) {
       toast.error(error.response.data.message);
     }
@@ -53,7 +54,8 @@ const Register = () => {
       <section className="authPage">
         <div className="container">
           <div className="header">
-            <img src="/JobZeelogo.png" alt="logo" />
+            <img src="/JobZeelogo.png" alt="logo" style={{ height: "60px", objectFit: "contain" }} />
+            <h3 style={{ fontSize: "2.2rem" }}>JobPortal</h3>
             <h3>Create a new account</h3>
           </div>
           <form>
